@@ -23,12 +23,6 @@ const config: Configuration = {
             plugins: [['import', { libraryName: 'antd', style: true }]]
           }
         }
-        // {
-        //   loader: 'style-loader'
-        // },
-        // {
-        //   loader: 'css-loader'
-        // }
       },
       {
         test: /\.css$/i,
