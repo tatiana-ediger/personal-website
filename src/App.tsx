@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import './App.css';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
-import { Header, Footer } from 'antd/lib/layout/layout';
+import { Header } from 'antd/lib/layout/layout';
 import Writing from './pages/Writing';
 import Resume from './pages/Resume';
 
@@ -33,7 +33,9 @@ export default function App() {
             <Route path="/writing" element={<Writing />} />
             <Route path="/resume" element={<Resume />} />
           </Routes>
-          <Footer style={{ textAlign: 'center' }}>If I want a footer, I'll put it here</Footer>
+          {/* <Footer style={{ textAlign: 'center' }}>
+            <MailOutlined /> tatiana.ediger@protonmail.com
+          </Footer> */}
         </Layout>
       </Router>
     </>
