@@ -7,10 +7,13 @@ import oreilly_logo from '../images/oreilly-logo.jpeg';
 import whoop_logo from '../images/whoop-logo.png';
 import poweradvocate_logo from '../images/poweradvocatelogo.png';
 import khoury_logo from '../images/khoury-logo.png';
+import ExperienceModal from '../components/ExperienceModal';
 
 const { Content } = Layout;
 
 export default function Home() {
+  const [modal, setModal] = React.useState<ExperienceModalType>(ExperienceModalType.NONE);
+
   return (
     <>
       <Content style={{ padding: '50px', textAlign: 'center' }}>
@@ -33,6 +36,7 @@ export default function Home() {
                   hoverable
                   cover={<img alt="O'Reilly" src={oreilly_logo} />}
                   style={{ width: 240, height: 240 }}
+                  onClick={() => setModal(ExperienceModalType.OREILLY)}
                 >
                   <Meta title="O'Reilly Media" description="Course Designer &amp; Teacher" />
                 </Card>
@@ -42,6 +46,7 @@ export default function Home() {
                   hoverable
                   cover={<img alt="WHOOP" src={whoop_logo} />}
                   style={{ width: 240, height: 240 }}
+                  onClick={() => setModal(ExperienceModalType.WHOOP)}
                 >
                   <Meta title="WHOOP" description="Software Engineer &amp; Data Scientist" />
                 </Card>
@@ -57,6 +62,7 @@ export default function Home() {
                     />
                   }
                   style={{ width: 240, height: 240 }}
+                  onClick={() => setModal(ExperienceModalType.PA)}
                 >
                   <Meta title="PowerAdvocate" description="Full-Stack Software Engineer" />
                 </Card>
@@ -72,6 +78,7 @@ export default function Home() {
                     />
                   }
                   style={{ width: 240, height: 240 }}
+                  onClick={() => setModal(ExperienceModalType.KHOURY)}
                 >
                   <Meta title="Khoury College" description="Research Assistant" />
                 </Card>
@@ -80,6 +87,46 @@ export default function Home() {
           </div>
         </div>
       </Content>
+      {modal == ExperienceModalType.OREILLY && (
+        <ExperienceModal
+          visible={modal == ExperienceModalType.OREILLY}
+          onCancel={() => setModal(ExperienceModalType.NONE)}
+          title="O'Reilly: Course Designer &amp; Teacher"
+          description="TODO"
+        />
+      )}
+      {modal == ExperienceModalType.WHOOP && (
+        <ExperienceModal
+          visible={modal == ExperienceModalType.WHOOP}
+          onCancel={() => setModal(ExperienceModalType.NONE)}
+          title="WHOOP: Software Engineer &amp; Data Scientist"
+          description="TODO"
+        />
+      )}
+      {modal == ExperienceModalType.PA && (
+        <ExperienceModal
+          visible={modal == ExperienceModalType.PA}
+          onCancel={() => setModal(ExperienceModalType.NONE)}
+          title="PowerAdvocate: Full-Stack Software Engineer"
+          description="TODO"
+        />
+      )}
+      {modal == ExperienceModalType.KHOURY && (
+        <ExperienceModal
+          visible={modal == ExperienceModalType.KHOURY}
+          onCancel={() => setModal(ExperienceModalType.NONE)}
+          title="Khoury College: Research Assistant"
+          description="TODO"
+        />
+      )}
     </>
   );
+}
+
+export enum ExperienceModalType {
+  OREILLY,
+  WHOOP,
+  PA,
+  KHOURY,
+  NONE
 }
